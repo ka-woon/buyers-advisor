@@ -19,11 +19,8 @@ namespace BuyersAdvisor
             }
             else
             {
-                File.Create("shops.txt");
+                File.WriteAllText("shops.txt", JsonSerializer.Serialize(new List<Shop>()));
             }
-            /*shops.Add(new Shop("Аврора", "м. Харків, вул. Сонячна, 11", "Побутові речі", "Приватна", "Понеділок-П'ятниця 9:00-22:00", new List<string>() { "+380991234567", "+380991231212" }, new List<string>() { "Немає акційних товарів" }));
-            shops.Add(new Shop("АТБ", "м. Харків, вул. Вигадана, 14", "Продуктовий магазин", "Приватна", "Понеділок-Субота цілободово", new List<string>() { "+380994445566" }, new List<string>() { "Яблука \"Чемпіон\"(-10%, аційна ціна: 29 грн/кг)" }));
-            shops.Add(new Shop("Аптека 822", "м. Київ, пров. Київський, 28", "Аптека", "Колективна", "Без вихідних 10:00-19:00", new List<string>() { "+380992556565" }, new List<string>() { "\"Сішарпін\" 200мг (-30%, аційна ціна: 475 грн)", "\"Джаваскріпт-Форте\" 100мг (-10%, аційна ціна: 280 грн)" }));*/
             foreach (Shop shop in shops)
             {
                 checkedListBox.Items.Add(shop);
