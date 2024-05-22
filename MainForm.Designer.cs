@@ -142,6 +142,7 @@
             MinimumSize = new Size(815, 490);
             Name = "MainForm";
             Text = " ";
+            FormClosed += MainForm_FormClosed;
             Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
