@@ -3,7 +3,6 @@ C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\bin\Debug\net8.0-windows
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\bin\Debug\net8.0-windows\BuyersAdvisor.runtimeconfig.json
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\bin\Debug\net8.0-windows\BuyersAdvisor.dll
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\bin\Debug\net8.0-windows\BuyersAdvisor.pdb
-C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.Form1.resources
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.csproj.GenerateResource.cache
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.AssemblyInfoInputs.cache
@@ -14,3 +13,4 @@ C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.pdb
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.genruntimeconfig.cache
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\ref\BuyersAdvisor.dll
+C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.MainForm.resources

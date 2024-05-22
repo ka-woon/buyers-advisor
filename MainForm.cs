@@ -2,10 +2,10 @@ using System.Diagnostics;
 
 namespace BuyersAdvisor
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         List<Shop> shops = new List<Shop>();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -27,6 +27,17 @@ namespace BuyersAdvisor
             infoText.Text = selectedShop.PrintShopInfo();
         }
 
+        private void printInfoButton_Click(object sender, EventArgs e)
+        {
+            List<Shop> selectedShops = checkedListBox.CheckedItems.Cast<Shop>().ToList();
+            string text = "";
+            foreach (Shop shop in selectedShops)
+            {
+                text += "=====================================\n";
+                text += shop.PrintShopInfo();
+            }
+            File.WriteAllText("shopsInfo.txt", text);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -37,16 +48,14 @@ namespace BuyersAdvisor
 
         }
 
-        private void printInfoButton_Click(object sender, EventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            List<Shop> selectedShops = checkedListBox.CheckedItems.Cast<Shop>().ToList();
-            string text = "";
-            foreach(Shop shop in selectedShops)
-            {
-                text += "=====================================\n";
-                text += shop.PrintShopInfo();
-            }
-            File.WriteAllText("shopsInfo.txt", text);
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

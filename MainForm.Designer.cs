@@ -1,6 +1,6 @@
 ﻿namespace BuyersAdvisor
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -33,16 +33,18 @@
             infoLabel = new Label();
             infoText = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            printInfoButton = new Button();
+            addShopButton = new Button();
+            button1 = new Button();
+            removeButton = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // checkedListBox
             // 
             checkedListBox.FormattingEnabled = true;
-            checkedListBox.Location = new Point(3, 35);
+            checkedListBox.Location = new Point(3, 33);
             checkedListBox.Name = "checkedListBox";
-            checkedListBox.Size = new Size(382, 346);
+            checkedListBox.Size = new Size(382, 328);
             checkedListBox.TabIndex = 1;
             checkedListBox.SelectedIndexChanged += checkedListBox2_SelectedIndexChanged;
             // 
@@ -70,7 +72,7 @@
             // infoText
             // 
             infoText.AutoSize = true;
-            infoText.Location = new Point(391, 32);
+            infoText.Location = new Point(391, 30);
             infoText.Name = "infoText";
             infoText.Size = new Size(54, 15);
             infoText.TabIndex = 4;
@@ -82,31 +84,54 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(printInfoButton, 0, 2);
             tableLayoutPanel1.Controls.Add(infoText, 1, 1);
             tableLayoutPanel1.Controls.Add(checkedListBox, 0, 1);
             tableLayoutPanel1.Controls.Add(listLabel, 0, 0);
             tableLayoutPanel1.Controls.Add(infoLabel, 1, 0);
+            tableLayoutPanel1.Controls.Add(addShopButton, 0, 2);
+            tableLayoutPanel1.Controls.Add(button1, 0, 3);
+            tableLayoutPanel1.Controls.Add(removeButton, 1, 3);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.215962F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 91.7840347F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel1.Size = new Size(776, 426);
             tableLayoutPanel1.TabIndex = 5;
+            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint_1;
             // 
-            // printInfoButton
+            // addShopButton
             // 
-            printInfoButton.Location = new Point(3, 399);
-            printInfoButton.Name = "printInfoButton";
-            printInfoButton.Size = new Size(81, 23);
-            printInfoButton.TabIndex = 6;
-            printInfoButton.Text = "Print All Info";
-            printInfoButton.UseVisualStyleBackColor = true;
-            printInfoButton.Click += printInfoButton_Click;
+            addShopButton.Location = new Point(3, 373);
+            addShopButton.Name = "addShopButton";
+            addShopButton.Size = new Size(81, 22);
+            addShopButton.TabIndex = 6;
+            addShopButton.Text = "Add Shop";
+            addShopButton.UseVisualStyleBackColor = true;
+            addShopButton.Click += printInfoButton_Click;
             // 
-            // Form1
+            // button1
+            // 
+            button1.Location = new Point(3, 401);
+            button1.Name = "button1";
+            button1.Size = new Size(81, 22);
+            button1.TabIndex = 7;
+            button1.Text = "Print All Info";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // removeButton
+            // 
+            removeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            removeButton.Location = new Point(685, 401);
+            removeButton.Name = "removeButton";
+            removeButton.Size = new Size(88, 22);
+            removeButton.TabIndex = 8;
+            removeButton.Text = "Remove Shop";
+            removeButton.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -115,7 +140,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximumSize = new Size(815, 490);
             MinimumSize = new Size(815, 490);
-            Name = "Form1";
+            Name = "MainForm";
             Text = " ";
             Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
@@ -130,6 +155,8 @@
         private Label infoLabel;
         private Label infoText;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button printInfoButton;
+        private Button addShopButton;
+        private Button button1;
+        private Button removeButton;
     }
 }
