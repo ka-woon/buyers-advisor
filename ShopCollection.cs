@@ -10,7 +10,7 @@ namespace BuyersAdvisor
     public class ShopCollection
     {
         public List<Shop>? shops { get; }
-        public static ShopCollection Instance { get; set; }
+        public static ShopCollection Instance { get; set; } = new ShopCollection();
         public ShopCollection()
         {
             shops = new List<Shop>();

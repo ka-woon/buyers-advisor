@@ -33,28 +33,46 @@
             nameLabel = new Label();
             nameTextBox = new TextBox();
             adressLabel = new Label();
-            textBox1 = new TextBox();
+            adressTextBox = new TextBox();
             specLabel = new Label();
-            textBox2 = new TextBox();
+            specTextBox = new TextBox();
             ownershipLabel = new Label();
-            textBox3 = new TextBox();
+            ownershipTextBox = new TextBox();
             workTimeLabel = new Label();
-            textBox4 = new TextBox();
+            hoursTextBox = new TextBox();
             flowLayoutPanel2 = new FlowLayoutPanel();
             contactsLabel = new Label();
-            richTextBox1 = new RichTextBox();
+            contactsBox = new RichTextBox();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            salesLabel = new Label();
+            salesListBox = new ListBox();
+            label1 = new Label();
+            saleNameTextBox = new TextBox();
+            label2 = new Label();
+            saleOldPriceTextBox = new TextBox();
+            label3 = new Label();
+            saleNewPriceTextBox = new TextBox();
+            deleteSaleButton = new Button();
+            addSaleButton = new Button();
+            addButton = new Button();
+            cancelButton = new Button();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.2899628F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 61.7100372F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 289F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 1, 0);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel3, 2, 0);
+            tableLayoutPanel1.Controls.Add(addButton, 2, 1);
+            tableLayoutPanel1.Controls.Add(cancelButton, 0, 1);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -68,17 +86,17 @@
             flowLayoutPanel1.Controls.Add(nameLabel);
             flowLayoutPanel1.Controls.Add(nameTextBox);
             flowLayoutPanel1.Controls.Add(adressLabel);
-            flowLayoutPanel1.Controls.Add(textBox1);
+            flowLayoutPanel1.Controls.Add(adressTextBox);
             flowLayoutPanel1.Controls.Add(specLabel);
-            flowLayoutPanel1.Controls.Add(textBox2);
+            flowLayoutPanel1.Controls.Add(specTextBox);
             flowLayoutPanel1.Controls.Add(ownershipLabel);
-            flowLayoutPanel1.Controls.Add(textBox3);
+            flowLayoutPanel1.Controls.Add(ownershipTextBox);
             flowLayoutPanel1.Controls.Add(workTimeLabel);
-            flowLayoutPanel1.Controls.Add(textBox4);
+            flowLayoutPanel1.Controls.Add(hoursTextBox);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(382, 385);
+            flowLayoutPanel1.Size = new Size(180, 385);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // nameLabel
@@ -98,7 +116,6 @@
             nameTextBox.Name = "nameTextBox";
             nameTextBox.Size = new Size(100, 23);
             nameTextBox.TabIndex = 1;
-            nameTextBox.TextChanged += textBox1_TextChanged;
             // 
             // adressLabel
             // 
@@ -110,14 +127,13 @@
             adressLabel.Size = new Size(74, 25);
             adressLabel.TabIndex = 2;
             adressLabel.Text = "Адреса";
-            adressLabel.Click += label1_Click;
             // 
-            // textBox1
+            // adressTextBox
             // 
-            textBox1.Location = new Point(3, 82);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 3;
+            adressTextBox.Location = new Point(3, 82);
+            adressTextBox.Name = "adressTextBox";
+            adressTextBox.Size = new Size(100, 23);
+            adressTextBox.TabIndex = 3;
             // 
             // specLabel
             // 
@@ -130,12 +146,12 @@
             specLabel.TabIndex = 4;
             specLabel.Text = "Спеціалізація";
             // 
-            // textBox2
+            // specTextBox
             // 
-            textBox2.Location = new Point(3, 136);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 5;
+            specTextBox.Location = new Point(3, 136);
+            specTextBox.Name = "specTextBox";
+            specTextBox.Size = new Size(100, 23);
+            specTextBox.TabIndex = 5;
             // 
             // ownershipLabel
             // 
@@ -147,14 +163,13 @@
             ownershipLabel.Size = new Size(159, 25);
             ownershipLabel.TabIndex = 6;
             ownershipLabel.Text = "Форма власності";
-            ownershipLabel.Click += label3_Click;
             // 
-            // textBox3
+            // ownershipTextBox
             // 
-            textBox3.Location = new Point(3, 190);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 7;
+            ownershipTextBox.Location = new Point(3, 190);
+            ownershipTextBox.Name = "ownershipTextBox";
+            ownershipTextBox.Size = new Size(100, 23);
+            ownershipTextBox.TabIndex = 7;
             // 
             // workTimeLabel
             // 
@@ -167,20 +182,21 @@
             workTimeLabel.TabIndex = 8;
             workTimeLabel.Text = "Робочий час";
             // 
-            // textBox4
+            // hoursTextBox
             // 
-            textBox4.Location = new Point(3, 244);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
+            hoursTextBox.Location = new Point(3, 244);
+            hoursTextBox.Name = "hoursTextBox";
+            hoursTextBox.Size = new Size(100, 23);
+            hoursTextBox.TabIndex = 9;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(contactsLabel);
-            flowLayoutPanel2.Controls.Add(richTextBox1);
-            flowLayoutPanel2.Location = new Point(391, 3);
+            flowLayoutPanel2.Controls.Add(contactsBox);
+            flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel2.Location = new Point(189, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(382, 385);
+            flowLayoutPanel2.Size = new Size(294, 385);
             flowLayoutPanel2.TabIndex = 10;
             // 
             // contactsLabel
@@ -193,16 +209,151 @@
             contactsLabel.Size = new Size(239, 25);
             contactsLabel.TabIndex = 2;
             contactsLabel.Text = "Контакти (один на строку)";
-            contactsLabel.Click += contactsLabel_Click;
             // 
-            // richTextBox1
+            // contactsBox
             // 
-            richTextBox1.Location = new Point(3, 28);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(379, 105);
-            richTextBox1.TabIndex = 3;
-            richTextBox1.Text = "";
-            richTextBox1.TextChanged += richTextBox1_TextChanged;
+            contactsBox.Location = new Point(3, 28);
+            contactsBox.Name = "contactsBox";
+            contactsBox.Size = new Size(291, 348);
+            contactsBox.TabIndex = 3;
+            contactsBox.Text = "";
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(salesLabel);
+            flowLayoutPanel3.Controls.Add(salesListBox);
+            flowLayoutPanel3.Controls.Add(label1);
+            flowLayoutPanel3.Controls.Add(saleNameTextBox);
+            flowLayoutPanel3.Controls.Add(label2);
+            flowLayoutPanel3.Controls.Add(saleOldPriceTextBox);
+            flowLayoutPanel3.Controls.Add(label3);
+            flowLayoutPanel3.Controls.Add(saleNewPriceTextBox);
+            flowLayoutPanel3.Controls.Add(deleteSaleButton);
+            flowLayoutPanel3.Controls.Add(addSaleButton);
+            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel3.Location = new Point(489, 3);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(284, 385);
+            flowLayoutPanel3.TabIndex = 11;
+            // 
+            // salesLabel
+            // 
+            salesLabel.AutoSize = true;
+            salesLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            salesLabel.Location = new Point(3, 0);
+            salesLabel.Name = "salesLabel";
+            salesLabel.RightToLeft = RightToLeft.Yes;
+            salesLabel.Size = new Size(142, 25);
+            salesLabel.TabIndex = 2;
+            salesLabel.Text = "Акційні товари";
+            // 
+            // salesListBox
+            // 
+            salesListBox.FormattingEnabled = true;
+            salesListBox.ItemHeight = 15;
+            salesListBox.Location = new Point(3, 28);
+            salesListBox.Name = "salesListBox";
+            salesListBox.Size = new Size(281, 124);
+            salesListBox.TabIndex = 3;
+            salesListBox.SelectedIndexChanged += salesListBox_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.Location = new Point(3, 155);
+            label1.Name = "label1";
+            label1.RightToLeft = RightToLeft.Yes;
+            label1.Size = new Size(127, 25);
+            label1.TabIndex = 4;
+            label1.Text = "Назва товару";
+            // 
+            // saleNameTextBox
+            // 
+            saleNameTextBox.Location = new Point(3, 183);
+            saleNameTextBox.Name = "saleNameTextBox";
+            saleNameTextBox.Size = new Size(100, 23);
+            saleNameTextBox.TabIndex = 5;
+            saleNameTextBox.TextChanged += parameters_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label2.Location = new Point(3, 209);
+            label2.Name = "label2";
+            label2.RightToLeft = RightToLeft.Yes;
+            label2.Size = new Size(151, 25);
+            label2.TabIndex = 6;
+            label2.Text = "Стара ціна (грн)";
+            // 
+            // saleOldPriceTextBox
+            // 
+            saleOldPriceTextBox.Location = new Point(3, 237);
+            saleOldPriceTextBox.Name = "saleOldPriceTextBox";
+            saleOldPriceTextBox.Size = new Size(100, 23);
+            saleOldPriceTextBox.TabIndex = 7;
+            saleOldPriceTextBox.TextChanged += parameters_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(3, 263);
+            label3.Name = "label3";
+            label3.RightToLeft = RightToLeft.Yes;
+            label3.Size = new Size(144, 25);
+            label3.TabIndex = 8;
+            label3.Text = "Нова ціна (грн)";
+            // 
+            // saleNewPriceTextBox
+            // 
+            saleNewPriceTextBox.Location = new Point(3, 291);
+            saleNewPriceTextBox.Name = "saleNewPriceTextBox";
+            saleNewPriceTextBox.Size = new Size(100, 23);
+            saleNewPriceTextBox.TabIndex = 9;
+            saleNewPriceTextBox.TextChanged += parameters_TextChanged;
+            // 
+            // deleteSaleButton
+            // 
+            deleteSaleButton.Location = new Point(3, 320);
+            deleteSaleButton.Name = "deleteSaleButton";
+            deleteSaleButton.Size = new Size(75, 23);
+            deleteSaleButton.TabIndex = 11;
+            deleteSaleButton.Text = "Видалити";
+            deleteSaleButton.UseVisualStyleBackColor = true;
+            deleteSaleButton.Click += deleteSaleButton_Click;
+            // 
+            // addSaleButton
+            // 
+            addSaleButton.Location = new Point(3, 349);
+            addSaleButton.Name = "addSaleButton";
+            addSaleButton.Size = new Size(75, 23);
+            addSaleButton.TabIndex = 12;
+            addSaleButton.Text = "Додати";
+            addSaleButton.UseVisualStyleBackColor = true;
+            addSaleButton.Click += addSaleButton_Click;
+            // 
+            // addButton
+            // 
+            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            addButton.Location = new Point(698, 400);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(75, 23);
+            addButton.TabIndex = 12;
+            addButton.Text = "Додати";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
+            // 
+            // cancelButton
+            // 
+            cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            cancelButton.Location = new Point(3, 400);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(75, 23);
+            cancelButton.TabIndex = 13;
+            cancelButton.Text = "Відміна";
+            cancelButton.UseVisualStyleBackColor = true;
             // 
             // ShopAddForm
             // 
@@ -212,11 +363,14 @@
             Controls.Add(tableLayoutPanel1);
             Name = "ShopAddForm";
             Text = "ShopAddForm";
+            Load += ShopAddForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -227,15 +381,28 @@
         private Label nameLabel;
         private TextBox nameTextBox;
         private Label adressLabel;
-        private TextBox textBox1;
+        private TextBox adressTextBox;
         private Label specLabel;
-        private TextBox textBox2;
+        private TextBox specTextBox;
         private Label ownershipLabel;
-        private TextBox textBox3;
+        private TextBox ownershipTextBox;
         private Label workTimeLabel;
-        private TextBox textBox4;
+        private TextBox hoursTextBox;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label contactsLabel;
-        private RichTextBox richTextBox1;
+        private RichTextBox contactsBox;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Label salesLabel;
+        private ListBox salesListBox;
+        private Label label1;
+        private TextBox saleNameTextBox;
+        private Label label2;
+        private TextBox saleOldPriceTextBox;
+        private Label label3;
+        private TextBox saleNewPriceTextBox;
+        private Button deleteSaleButton;
+        private Button addSaleButton;
+        private Button addButton;
+        private Button cancelButton;
     }
 }

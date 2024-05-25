@@ -13,7 +13,7 @@ namespace BuyersAdvisor
         string specialization;
         string ownership;
         string workTime;
-        public List<string> phoneNumbers { get; set; }
+        public List<string> contacts { get; set; }
         public List<Sale> sales { get; set; }
         public Shop(string name, string adress, string specialization, string ownership, string workTime, List<string> phoneNumbers, List<Sale> sales)
         {
@@ -22,16 +22,16 @@ namespace BuyersAdvisor
             this.specialization = specialization;
             this.ownership = ownership;
             this.workTime = workTime;
-            this.phoneNumbers = phoneNumbers;
+            this.contacts = phoneNumbers;
             this.sales = sales;
         }
         public string PrintShopInfo()
         {
             string info = $"Назва: {name}\nАдреса: {adress}\nСпеціалізація: {specialization}\nФорма власності: {ownership}\n Робочий час: {workTime}\n";
             info += "Контакти:\n";
-            foreach (string phoneNumber in phoneNumbers)
+            foreach (string contact in contacts)
             {
-                info += $"{phoneNumber}\n";
+                info += $"{contact}\n";
             }
             info += "Акційні товари: \n";
             foreach(Sale sale in sales)

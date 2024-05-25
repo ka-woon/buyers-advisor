@@ -8,9 +8,9 @@ namespace BuyersAdvisor
 {
     public class Sale
     {
-        string productName;
-        double price;
-        double discountedPrice;
+        public string productName { get;}
+        public double price { get;}
+        public double discountedPrice { get;}
         public Sale(string productName, double price, double discountedPrice)
         {
             this.productName = productName;

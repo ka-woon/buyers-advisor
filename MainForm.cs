@@ -5,7 +5,6 @@ namespace BuyersAdvisor
 {
     public partial class MainForm : Form
     {
-        ShopCollection shops = new ShopCollection();
         public MainForm()
         {
             InitializeComponent();
@@ -15,17 +14,13 @@ namespace BuyersAdvisor
         {
             if (File.Exists("shops.txt"))
             {
-                shops = JsonSerializer.Deserialize<ShopCollection>(File.ReadAllText("shops.txt"));
+                ShopCollection.Instance = JsonSerializer.Deserialize<ShopCollection>(File.ReadAllText("shops.txt"));
             }
             else
             {
-                File.WriteAllText("shops.txt", JsonSerializer.Serialize(shops));
+                File.WriteAllText("shops.txt", JsonSerializer.Serialize(ShopCollection.Instance));
             }
-            List<Shop> shopsList = shops.GetShopList();
-            foreach (Shop shop in shopsList)
-            {
-                checkedListBox.Items.Add(shop);
-            }
+            checkedListBox.Items.AddRange(ShopCollection.Instance.GetShopList().ToArray<Shop>());
         }
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,12 +31,12 @@ namespace BuyersAdvisor
 
         private void printInfoButton_Click(object sender, EventArgs e)
         {
-            ShopCollection selectedShops = new ShopCollection(checkedListBox.CheckedItems.Cast<Shop>().ToList());
-            File.WriteAllText("shopsInfo.txt", selectedShops.ToString());
+            ShopCollection checkedShops = new ShopCollection(checkedListBox.CheckedItems.Cast<Shop>().ToList());
+            File.WriteAllText("shopsInfo.txt", checkedShops.ToString());
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            File.WriteAllText("shops.txt", JsonSerializer.Serialize(shops));
+            File.WriteAllText("shops.txt", JsonSerializer.Serialize(ShopCollection.Instance));
         }
 
         private void addShopButton_Click(object sender, EventArgs e)
