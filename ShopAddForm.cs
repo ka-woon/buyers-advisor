@@ -25,6 +25,7 @@ namespace BuyersAdvisor
         private void addButton_Click(object sender, EventArgs e)
         {
             ShopCollection.Instance.Add(new Shop(nameTextBox.Text, adressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList<string>(), salesListBox.Items.Cast<Sale>().ToList()));
+            Close();
         }
 
         private void addSaleButton_Click(object sender, EventArgs e)
@@ -34,12 +35,14 @@ namespace BuyersAdvisor
 
         private void deleteSaleButton_Click(object sender, EventArgs e)
         {
-            salesListBox.Items.Remove(salesListBox.SelectedItem);
+            if (salesListBox.SelectedItem != null)
+            {
+                salesListBox.Items.Remove(salesListBox.SelectedItem);
+            }
         }
-
         private void salesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(salesListBox.SelectedIndex != -1)
+            if(salesListBox.SelectedItem != null)
             {
                 Sale selectedSale = (Sale)salesListBox.SelectedItem;
                 saleNameTextBox.Text = selectedSale.productName;
@@ -49,7 +52,7 @@ namespace BuyersAdvisor
         }
         private void parameters_TextChanged(object sender, EventArgs e)
         {
-            if (salesListBox.SelectedIndex != -1)
+            if (salesListBox.SelectedItem != null)
             {
                 salesListBox.SelectedItem = new Sale(saleNameTextBox.Text, double.Parse(saleOldPriceTextBox.Text), double.Parse(saleNewPriceTextBox.Text));
             }

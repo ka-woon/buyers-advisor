@@ -1,1 +1,1 @@
-{"shops":[]}
+{"shops":[{"contacts":["6","7"],"sales":[{"productName":"8","price":9,"discountedPrice":10},{"productName":"11","price":12,"discountedPrice":13}]}]}

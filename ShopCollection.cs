@@ -9,11 +9,11 @@ namespace BuyersAdvisor
 {
     public class ShopCollection
     {
-        public List<Shop>? shops { get; }
+        public List<Shop>? shops { get;} = new List<Shop>();
         public static ShopCollection Instance { get; set; } = new ShopCollection();
         public ShopCollection()
         {
-            shops = new List<Shop>();
+
         }
         public ShopCollection(List<Shop> shopList)
         {

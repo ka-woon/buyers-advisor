@@ -25,8 +25,11 @@ namespace BuyersAdvisor
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Shop selectedShop = (Shop)checkedListBox.SelectedItem;
-            infoText.Text = selectedShop.PrintShopInfo();
+            if(checkedListBox.SelectedItem != null)
+            {
+                Shop selectedShop = (Shop)checkedListBox.SelectedItem;
+                infoText.Text = selectedShop.PrintShopInfo();
+            }
         }
 
         private void printInfoButton_Click(object sender, EventArgs e)
