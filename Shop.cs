@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace BuyersAdvisor
 {
-    internal class Shop
+    public class Shop
     {
-        string name;
-        string adress;
-        string specialization;
-        string ownership;
-        string workTime;
-        List<string> phoneNumbers;
-        List<string> sales;
-        public Shop(string name, string adress, string specialization, string ownership, string workTime, List<string> phoneNumbers, List<string> sales)
+        public string name { get; set; }
+        public string adress { get; set; }
+        public string specialization { get; set; }
+        public string ownership { get; set; }
+        public string workTime { get; set; }
+        public List<string> phoneNumbers { get; set; }
+        public List<Sale> sales { get; set; }
+        public Shop(string name, string adress, string specialization, string ownership, string workTime, List<string> phoneNumbers, List<Sale> sales)
         {
             this.name = name;
             this.adress = adress;
@@ -34,7 +34,7 @@ namespace BuyersAdvisor
                 info += $"{phoneNumber}\n";
             }
             info += "Акційні товари: \n";
-            foreach(string sale in sales)
+            foreach(Sale sale in sales)
             {
                 info += $"{sale}\n";
             }

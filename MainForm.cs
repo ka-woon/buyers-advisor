@@ -5,7 +5,7 @@ namespace BuyersAdvisor
 {
     public partial class MainForm : Form
     {
-        List<Shop> shops = new List<Shop>();
+        ShopCollection shops = new ShopCollection(new List<Shop>());
         public MainForm()
         {
             InitializeComponent();
@@ -13,15 +13,16 @@ namespace BuyersAdvisor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(File.Exists("shops.txt"))
+            if (File.Exists("shops.txt"))
             {
-                shops = JsonSerializer.Deserialize<List<Shop>>(File.ReadAllText("shops.txt"));
+                shops = JsonSerializer.Deserialize<ShopCollection>(File.ReadAllText("shops.txt"));
             }
             else
             {
-                File.WriteAllText("shops.txt", JsonSerializer.Serialize(new List<Shop>()));
+                File.WriteAllText("shops.txt", JsonSerializer.Serialize(shops));
             }
-            foreach (Shop shop in shops)
+            List<Shop> shopsList = shops.GetShopList();
+            foreach (Shop shop in shopsList)
             {
                 checkedListBox.Items.Add(shop);
             }
@@ -35,38 +36,12 @@ namespace BuyersAdvisor
 
         private void printInfoButton_Click(object sender, EventArgs e)
         {
-            List<Shop> selectedShops = checkedListBox.CheckedItems.Cast<Shop>().ToList();
-            string text = "";
-            foreach (Shop shop in selectedShops)
-            {
-                text += "=====================================\n";
-                text += shop.PrintShopInfo();
-            }
-            File.WriteAllText("shopsInfo.txt", text);
+            ShopCollection selectedShops = new ShopCollection(checkedListBox.CheckedItems.Cast<Shop>().ToList());
+            File.WriteAllText("shopsInfo.txt", selectedShops.ToString());
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             File.WriteAllText("shops.txt", JsonSerializer.Serialize(shops));
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void infoText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
