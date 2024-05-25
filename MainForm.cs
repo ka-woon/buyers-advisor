@@ -43,5 +43,11 @@ namespace BuyersAdvisor
         {
             File.WriteAllText("shops.txt", JsonSerializer.Serialize(shops));
         }
+
+        private void addShopButton_Click(object sender, EventArgs e)
+        {
+            ShopAddForm shopAddForm = new ShopAddForm();
+            shopAddForm.ShowDialog();
+        }
     }
 }

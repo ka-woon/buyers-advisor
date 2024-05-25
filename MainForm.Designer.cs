@@ -33,14 +33,14 @@
             infoLabel = new Label();
             infoText = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             button1 = new Button();
-            removeButton = new Button();
             addShopButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
+            removeButton = new Button();
             tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // checkedListBox
@@ -102,6 +102,15 @@
             tableLayoutPanel1.Size = new Size(776, 426);
             tableLayoutPanel1.TabIndex = 5;
             // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(button1);
+            flowLayoutPanel2.Controls.Add(addShopButton);
+            flowLayoutPanel2.Location = new Point(3, 397);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(382, 26);
+            flowLayoutPanel2.TabIndex = 10;
+            // 
             // button1
             // 
             button1.Location = new Point(3, 3);
@@ -111,16 +120,6 @@
             button1.Text = "Роздрукувати обрані";
             button1.UseVisualStyleBackColor = true;
             // 
-            // removeButton
-            // 
-            removeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            removeButton.Location = new Point(291, 3);
-            removeButton.Name = "removeButton";
-            removeButton.Size = new Size(88, 22);
-            removeButton.TabIndex = 8;
-            removeButton.Text = "Редагувати";
-            removeButton.UseVisualStyleBackColor = true;
-            // 
             // addShopButton
             // 
             addShopButton.Location = new Point(138, 3);
@@ -129,7 +128,7 @@
             addShopButton.TabIndex = 6;
             addShopButton.Text = "Дотати торгівельну точку";
             addShopButton.UseVisualStyleBackColor = true;
-            addShopButton.Click += printInfoButton_Click;
+            addShopButton.Click += addShopButton_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -140,14 +139,15 @@
             flowLayoutPanel1.Size = new Size(382, 26);
             flowLayoutPanel1.TabIndex = 9;
             // 
-            // flowLayoutPanel2
+            // removeButton
             // 
-            flowLayoutPanel2.Controls.Add(button1);
-            flowLayoutPanel2.Controls.Add(addShopButton);
-            flowLayoutPanel2.Location = new Point(3, 397);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(382, 26);
-            flowLayoutPanel2.TabIndex = 10;
+            removeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            removeButton.Location = new Point(291, 3);
+            removeButton.Name = "removeButton";
+            removeButton.Size = new Size(88, 22);
+            removeButton.TabIndex = 8;
+            removeButton.Text = "Редагувати";
+            removeButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -164,8 +164,8 @@
             Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 

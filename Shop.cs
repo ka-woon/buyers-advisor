@@ -28,7 +28,7 @@ namespace BuyersAdvisor
         public string PrintShopInfo()
         {
             string info = $"Назва: {name}\nАдреса: {adress}\nСпеціалізація: {specialization}\nФорма власності: {ownership}\n Робочий час: {workTime}\n";
-            info += "Телефони:\n";
+            info += "Контакти:\n";
             foreach (string phoneNumber in phoneNumbers)
             {
                 info += $"{phoneNumber}\n";

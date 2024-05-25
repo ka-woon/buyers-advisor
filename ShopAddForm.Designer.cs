@@ -40,9 +40,12 @@
             textBox3 = new TextBox();
             workTimeLabel = new Label();
             textBox4 = new TextBox();
-            listBox1 = new ListBox();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            contactsLabel = new Label();
+            richTextBox1 = new RichTextBox();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -51,7 +54,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(listBox1, 1, 0);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 1, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -171,14 +174,35 @@
             textBox4.Size = new Size(100, 23);
             textBox4.TabIndex = 9;
             // 
-            // listBox1
+            // flowLayoutPanel2
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(391, 3);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 1;
+            flowLayoutPanel2.Controls.Add(contactsLabel);
+            flowLayoutPanel2.Controls.Add(richTextBox1);
+            flowLayoutPanel2.Location = new Point(391, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(382, 385);
+            flowLayoutPanel2.TabIndex = 10;
+            // 
+            // contactsLabel
+            // 
+            contactsLabel.AutoSize = true;
+            contactsLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            contactsLabel.Location = new Point(3, 0);
+            contactsLabel.Name = "contactsLabel";
+            contactsLabel.RightToLeft = RightToLeft.Yes;
+            contactsLabel.Size = new Size(239, 25);
+            contactsLabel.TabIndex = 2;
+            contactsLabel.Text = "Контакти (один на строку)";
+            contactsLabel.Click += contactsLabel_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(3, 28);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(379, 105);
+            richTextBox1.TabIndex = 3;
+            richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // ShopAddForm
             // 
@@ -191,6 +215,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
+            flowLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -208,6 +234,8 @@
         private TextBox textBox3;
         private Label workTimeLabel;
         private TextBox textBox4;
-        private ListBox listBox1;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Label contactsLabel;
+        private RichTextBox richTextBox1;
     }
 }

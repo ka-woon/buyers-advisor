@@ -31,5 +31,15 @@ namespace BuyersAdvisor
         {
 
         }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contactsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
