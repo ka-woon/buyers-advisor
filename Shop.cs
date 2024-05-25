@@ -8,11 +8,11 @@ namespace BuyersAdvisor
 {
     public class Shop
     {
-        public string name { get; set; }
-        public string adress { get; set; }
-        public string specialization { get; set; }
-        public string ownership { get; set; }
-        public string workTime { get; set; }
+        string name;
+        string adress;
+        string specialization;
+        string ownership;
+        string workTime;
         public List<string> phoneNumbers { get; set; }
         public List<Sale> sales { get; set; }
         public Shop(string name, string adress, string specialization, string ownership, string workTime, List<string> phoneNumbers, List<Sale> sales)

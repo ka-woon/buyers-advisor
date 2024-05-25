@@ -5,7 +5,7 @@ namespace BuyersAdvisor
 {
     public partial class MainForm : Form
     {
-        ShopCollection shops = new ShopCollection(new List<Shop>());
+        ShopCollection shops = new ShopCollection();
         public MainForm()
         {
             InitializeComponent();
