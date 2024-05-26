@@ -11,11 +11,12 @@ namespace BuyersAdvisor
         public static List<string> MakeTags(string searchQuery)
         {
             List<string> tags;
-            tags = searchQuery.ToLower().Split(',').ToList();
+            tags = searchQuery.ToLower().Split(' ').ToList();
             foreach (string tag in tags)
             {
                 tag.Trim();
             }
+            tags.RemoveAll(tag => tag == "");
             return tags;
         }
     }

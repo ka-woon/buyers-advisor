@@ -184,9 +184,9 @@
             searchLabel.AutoSize = true;
             searchLabel.Location = new Point(3, 298);
             searchLabel.Name = "searchLabel";
-            searchLabel.Size = new Size(177, 15);
+            searchLabel.Size = new Size(256, 15);
             searchLabel.TabIndex = 11;
-            searchLabel.Text = "Пошук за тегами (через кому) ";
+            searchLabel.Text = "Пошук за ключовими словами (через кому) ";
             // 
             // searchTextBox
             // 
