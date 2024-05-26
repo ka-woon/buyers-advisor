@@ -104,6 +104,7 @@
             editButton.TabIndex = 14;
             editButton.Text = "Ок";
             editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // addButton
             // 
@@ -386,6 +387,7 @@
             cancelButton.TabIndex = 13;
             cancelButton.Text = "Відміна";
             cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // ShopAddForm
             // 

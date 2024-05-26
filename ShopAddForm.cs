@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace BuyersAdvisor
     public partial class ShopAddForm : Form
     {
         Shop? editedShop;
-        
+
         public ShopAddForm()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace BuyersAdvisor
             ownershipTextBox.Text = editedShop.Ownership;
             hoursTextBox.Text = editedShop.WorkTime;
             contactsBox.Lines = editedShop.Contacts.ToArray();
-            salesListBox.Items.AddRange(editedShop.Sales.ToArray());
+            salesListBox.Items.AddRange(editedShop.Sales.Select(s => new Sale(s)).ToArray());
         }
 
         private void ShopAddForm_Load(object sender, EventArgs e)
@@ -63,7 +64,7 @@ namespace BuyersAdvisor
 
         private void salesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(salesListBox.SelectedItem != null)
+            if (salesListBox.SelectedItem != null)
             {
                 Sale selectedSale = (Sale)salesListBox.SelectedItem;
                 saleNameTextBox.Text = selectedSale.ProductName;
@@ -82,6 +83,16 @@ namespace BuyersAdvisor
                 sale.DiscountedPrice = newPrice;
                 salesListBox.Invalidate();
             }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
