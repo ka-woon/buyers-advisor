@@ -9,20 +9,18 @@ namespace BuyersAdvisor
 {
     public class ShopCollection
     {
-        public List<Shop>? shops { get;} = new List<Shop>();
+        public event Action? OnListChanged;
+        public List<Shop>? Shops { get; set; } = new List<Shop>();
         public static ShopCollection Instance { get; set; } = new ShopCollection();
-        public ShopCollection()
-        {
-
-        }
+        public ShopCollection(){}
         public ShopCollection(List<Shop> shopList)
         {
-            shops = shopList;
+            Shops = shopList;
         }
         public override string ToString()
         {
             string text = "";
-            foreach (Shop shop in shops)
+            foreach (Shop shop in Shops)
             {
                 text += "***\n";
                 text += shop.PrintShopInfo();
@@ -33,12 +31,38 @@ namespace BuyersAdvisor
         {
             if (shop != null)
             {
-                shops.Add(shop);
+                Shops.Add(shop);
             }
+            OnListChanged?.Invoke();
+        }
+        public void Remove(Shop shop)
+        {
+            if (shop != null)
+            {
+                Shops.Remove(shop);
+            }
+            OnListChanged?.Invoke();
         }
         public List<Shop> GetShopList()
         {
-            return shops;
+            return Shops;
+        }
+        public List<Shop> SearchByTags(List<string> tags)
+        {
+            List<Shop> result = new List<Shop>(Shops);
+
+            foreach (Shop shop in Shops)
+            {
+                foreach (string tag in tags)
+                {
+                    if (!shop.PrintRawInfo().ToLower().Contains(tag, StringComparison.OrdinalIgnoreCase))
+                    {
+                        result.Remove(shop);
+                        break;
+                    }
+                }
+            }
+            return result;
         }
     }
 }

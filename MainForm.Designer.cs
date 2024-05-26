@@ -38,17 +38,22 @@
             addShopButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             removeButton = new Button();
+            editButton = new Button();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            searchLabel = new Label();
+            searchTextBox = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // checkedListBox
             // 
             checkedListBox.FormattingEnabled = true;
-            checkedListBox.Location = new Point(3, 35);
+            checkedListBox.Location = new Point(3, 3);
             checkedListBox.Name = "checkedListBox";
-            checkedListBox.Size = new Size(382, 328);
+            checkedListBox.Size = new Size(379, 292);
             checkedListBox.TabIndex = 1;
             checkedListBox.SelectedIndexChanged += checkedListBox2_SelectedIndexChanged;
             // 
@@ -77,9 +82,9 @@
             infoText.AutoSize = true;
             infoText.Location = new Point(391, 32);
             infoText.Name = "infoText";
-            infoText.Size = new Size(54, 15);
+            infoText.Size = new Size(197, 15);
             infoText.TabIndex = 4;
-            infoText.Text = "shopinfo";
+            infoText.Text = "Інформація про торгівельну точку";
             // 
             // tableLayoutPanel1
             // 
@@ -87,11 +92,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(infoText, 1, 1);
-            tableLayoutPanel1.Controls.Add(checkedListBox, 0, 1);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 0, 2);
             tableLayoutPanel1.Controls.Add(listLabel, 0, 0);
             tableLayoutPanel1.Controls.Add(infoLabel, 1, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 1, 2);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel3, 0, 1);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
@@ -133,6 +138,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(removeButton);
+            flowLayoutPanel1.Controls.Add(editButton);
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.Location = new Point(391, 397);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -145,9 +151,49 @@
             removeButton.Location = new Point(291, 3);
             removeButton.Name = "removeButton";
             removeButton.Size = new Size(88, 22);
-            removeButton.TabIndex = 8;
-            removeButton.Text = "Редагувати";
+            removeButton.TabIndex = 9;
+            removeButton.Text = "Видалити";
             removeButton.UseVisualStyleBackColor = true;
+            removeButton.Click += removeButton_Click;
+            // 
+            // editButton
+            // 
+            editButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            editButton.Location = new Point(197, 3);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(88, 22);
+            editButton.TabIndex = 10;
+            editButton.Text = "Редагувати";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(checkedListBox);
+            flowLayoutPanel3.Controls.Add(searchLabel);
+            flowLayoutPanel3.Controls.Add(searchTextBox);
+            flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel3.Location = new Point(3, 35);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(382, 356);
+            flowLayoutPanel3.TabIndex = 11;
+            // 
+            // searchLabel
+            // 
+            searchLabel.AutoSize = true;
+            searchLabel.Location = new Point(3, 298);
+            searchLabel.Name = "searchLabel";
+            searchLabel.Size = new Size(177, 15);
+            searchLabel.TabIndex = 11;
+            searchLabel.Text = "Пошук за тегами (через кому) ";
+            // 
+            // searchTextBox
+            // 
+            searchTextBox.Location = new Point(3, 316);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(379, 23);
+            searchTextBox.TabIndex = 12;
+            searchTextBox.TextChanged += searchTextBox_TextChanged;
             // 
             // MainForm
             // 
@@ -166,6 +212,8 @@
             tableLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel3.ResumeLayout(false);
+            flowLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -178,8 +226,12 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button addShopButton;
         private Button button1;
-        private Button removeButton;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button removeButton;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Label searchLabel;
+        private TextBox searchTextBox;
+        private Button editButton;
     }
 }

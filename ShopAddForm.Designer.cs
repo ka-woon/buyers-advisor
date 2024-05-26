@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            editButton = new Button();
+            addButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             nameLabel = new Label();
             nameTextBox = new TextBox();
             adressLabel = new Label();
-            adressTextBox = new TextBox();
+            addressTextBox = new TextBox();
             specLabel = new Label();
             specTextBox = new TextBox();
             ownershipLabel = new Label();
@@ -54,25 +57,27 @@
             saleNewPriceTextBox = new TextBox();
             deleteSaleButton = new Button();
             addSaleButton = new Button();
-            addButton = new Button();
+            panel2 = new Panel();
             cancelButton = new Button();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.2899628F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 61.7100372F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 289F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40.9090919F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 59.0909081F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 332F));
+            tableLayoutPanel1.Controls.Add(panel1, 2, 1);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 1, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel3, 2, 0);
-            tableLayoutPanel1.Controls.Add(addButton, 2, 1);
-            tableLayoutPanel1.Controls.Add(cancelButton, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
@@ -81,12 +86,42 @@
             tableLayoutPanel1.Size = new Size(776, 426);
             tableLayoutPanel1.TabIndex = 0;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(editButton);
+            panel1.Controls.Add(addButton);
+            panel1.Location = new Point(446, 394);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(327, 29);
+            panel1.TabIndex = 1;
+            // 
+            // editButton
+            // 
+            editButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            editButton.Location = new Point(249, 3);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(75, 23);
+            editButton.TabIndex = 14;
+            editButton.Text = "Ок";
+            editButton.UseVisualStyleBackColor = true;
+            // 
+            // addButton
+            // 
+            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            addButton.Location = new Point(249, 3);
+            addButton.Name = "addButton";
+            addButton.Size = new Size(75, 23);
+            addButton.TabIndex = 12;
+            addButton.Text = "Ок";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += addButton_Click;
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(nameLabel);
             flowLayoutPanel1.Controls.Add(nameTextBox);
             flowLayoutPanel1.Controls.Add(adressLabel);
-            flowLayoutPanel1.Controls.Add(adressTextBox);
+            flowLayoutPanel1.Controls.Add(addressTextBox);
             flowLayoutPanel1.Controls.Add(specLabel);
             flowLayoutPanel1.Controls.Add(specTextBox);
             flowLayoutPanel1.Controls.Add(ownershipLabel);
@@ -96,7 +131,7 @@
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(180, 385);
+            flowLayoutPanel1.Size = new Size(175, 385);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // nameLabel
@@ -128,12 +163,12 @@
             adressLabel.TabIndex = 2;
             adressLabel.Text = "Адреса";
             // 
-            // adressTextBox
+            // addressTextBox
             // 
-            adressTextBox.Location = new Point(3, 82);
-            adressTextBox.Name = "adressTextBox";
-            adressTextBox.Size = new Size(100, 23);
-            adressTextBox.TabIndex = 3;
+            addressTextBox.Location = new Point(3, 82);
+            addressTextBox.Name = "addressTextBox";
+            addressTextBox.Size = new Size(100, 23);
+            addressTextBox.TabIndex = 3;
             // 
             // specLabel
             // 
@@ -194,9 +229,9 @@
             flowLayoutPanel2.Controls.Add(contactsLabel);
             flowLayoutPanel2.Controls.Add(contactsBox);
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(189, 3);
+            flowLayoutPanel2.Location = new Point(184, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(294, 385);
+            flowLayoutPanel2.Size = new Size(256, 385);
             flowLayoutPanel2.TabIndex = 10;
             // 
             // contactsLabel
@@ -214,7 +249,7 @@
             // 
             contactsBox.Location = new Point(3, 28);
             contactsBox.Name = "contactsBox";
-            contactsBox.Size = new Size(291, 348);
+            contactsBox.Size = new Size(253, 348);
             contactsBox.TabIndex = 3;
             contactsBox.Text = "";
             // 
@@ -231,9 +266,9 @@
             flowLayoutPanel3.Controls.Add(deleteSaleButton);
             flowLayoutPanel3.Controls.Add(addSaleButton);
             flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel3.Location = new Point(489, 3);
+            flowLayoutPanel3.Location = new Point(446, 3);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(284, 385);
+            flowLayoutPanel3.Size = new Size(327, 385);
             flowLayoutPanel3.TabIndex = 11;
             // 
             // salesLabel
@@ -253,7 +288,7 @@
             salesListBox.ItemHeight = 15;
             salesListBox.Location = new Point(3, 28);
             salesListBox.Name = "salesListBox";
-            salesListBox.Size = new Size(281, 124);
+            salesListBox.Size = new Size(327, 124);
             salesListBox.TabIndex = 3;
             salesListBox.SelectedIndexChanged += salesListBox_SelectedIndexChanged;
             // 
@@ -318,9 +353,9 @@
             // 
             deleteSaleButton.Location = new Point(3, 320);
             deleteSaleButton.Name = "deleteSaleButton";
-            deleteSaleButton.Size = new Size(75, 23);
+            deleteSaleButton.Size = new Size(112, 23);
             deleteSaleButton.TabIndex = 11;
-            deleteSaleButton.Text = "Видалити";
+            deleteSaleButton.Text = "Видалити товар";
             deleteSaleButton.UseVisualStyleBackColor = true;
             deleteSaleButton.Click += deleteSaleButton_Click;
             // 
@@ -328,27 +363,24 @@
             // 
             addSaleButton.Location = new Point(3, 349);
             addSaleButton.Name = "addSaleButton";
-            addSaleButton.Size = new Size(75, 23);
+            addSaleButton.Size = new Size(112, 23);
             addSaleButton.TabIndex = 12;
-            addSaleButton.Text = "Додати";
+            addSaleButton.Text = "Додати товар";
             addSaleButton.UseVisualStyleBackColor = true;
             addSaleButton.Click += addSaleButton_Click;
             // 
-            // addButton
+            // panel2
             // 
-            addButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            addButton.Location = new Point(698, 400);
-            addButton.Name = "addButton";
-            addButton.Size = new Size(75, 23);
-            addButton.TabIndex = 12;
-            addButton.Text = "Додати";
-            addButton.UseVisualStyleBackColor = true;
-            addButton.Click += addButton_Click;
+            panel2.Controls.Add(cancelButton);
+            panel2.Location = new Point(3, 394);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(175, 29);
+            panel2.TabIndex = 14;
             // 
             // cancelButton
             // 
             cancelButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            cancelButton.Location = new Point(3, 400);
+            cancelButton.Location = new Point(3, 3);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.TabIndex = 13;
@@ -365,12 +397,14 @@
             Text = "ShopAddForm";
             Load += ShopAddForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel3.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -381,7 +415,7 @@
         private Label nameLabel;
         private TextBox nameTextBox;
         private Label adressLabel;
-        private TextBox adressTextBox;
+        private TextBox addressTextBox;
         private Label specLabel;
         private TextBox specTextBox;
         private Label ownershipLabel;
@@ -404,5 +438,8 @@
         private Button addSaleButton;
         private Button addButton;
         private Button cancelButton;
+        private Panel panel1;
+        private Button editButton;
+        private Panel panel2;
     }
 }

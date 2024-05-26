@@ -8,18 +8,22 @@ namespace BuyersAdvisor
 {
     public class Sale
     {
-        public string productName { get;}
-        public double price { get;}
-        public double discountedPrice { get;}
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public double DiscountedPrice { get; set; }
         public Sale(string productName, double price, double discountedPrice)
         {
-            this.productName = productName;
-            this.price = price;
-            this.discountedPrice = discountedPrice;
+            ProductName = productName;
+            Price = price;
+            DiscountedPrice = discountedPrice;
         }
         public override string ToString()
         {
-            return $"Назва товару: {productName}, стара ціна: {price}, нова ціна: {discountedPrice}";
+            return $"Назва товару: {ProductName}. Стара ціна: {Price}. Нова ціна: {DiscountedPrice}";
+        }
+        public string PrintRawInfo()
+        {
+            return $"{ProductName} {Price} {DiscountedPrice}";
         }
     }
 }
