@@ -34,7 +34,7 @@
             infoText = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            button1 = new Button();
+            printInfoButton = new Button();
             addShopButton = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             removeButton = new Button();
@@ -109,21 +109,22 @@
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Controls.Add(button1);
+            flowLayoutPanel2.Controls.Add(printInfoButton);
             flowLayoutPanel2.Controls.Add(addShopButton);
             flowLayoutPanel2.Location = new Point(3, 397);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(382, 26);
             flowLayoutPanel2.TabIndex = 10;
             // 
-            // button1
+            // printInfoButton
             // 
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(129, 22);
-            button1.TabIndex = 7;
-            button1.Text = "Роздрукувати обрані";
-            button1.UseVisualStyleBackColor = true;
+            printInfoButton.Location = new Point(3, 3);
+            printInfoButton.Name = "printInfoButton";
+            printInfoButton.Size = new Size(129, 22);
+            printInfoButton.TabIndex = 7;
+            printInfoButton.Text = "Роздрукувати обрані";
+            printInfoButton.UseVisualStyleBackColor = true;
+            printInfoButton.Click += printInfoButton_Click;
             // 
             // addShopButton
             // 
@@ -225,7 +226,7 @@
         private Label infoText;
         private TableLayoutPanel tableLayoutPanel1;
         private Button addShopButton;
-        private Button button1;
+        private Button printInfoButton;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button removeButton;

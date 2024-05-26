@@ -22,8 +22,8 @@ namespace BuyersAdvisor
             string text = "";
             foreach (Shop shop in Shops)
             {
-                text += "***\n";
                 text += shop.PrintShopInfo();
+                text += "***\n";
             }
             return text;
         }

@@ -38,13 +38,13 @@ namespace BuyersAdvisor
         }
         public string PrintShopInfo()
         {
-            string info = $"Назва: {Name}\nАдреса: {Address}\nСпеціалізація: {Specialization}\nФорма власності: {Ownership}\n Робочий час: {WorkTime}\n";
+            string info = $"Назва: {Name}\nАдреса: {Address}\nСпеціалізація: {Specialization}\nФорма власності: {Ownership}\nРобочий час: {WorkTime}\n";
             info += "Контакти:\n";
             foreach (string contact in Contacts)
             {
                 info += $"{contact}\n";
             }
-            info += "Акційні товари: \n";
+            info += "Акційні товари:\n";
             foreach(Sale sale in Sales)
             {
                 info += $"{sale}\n";
