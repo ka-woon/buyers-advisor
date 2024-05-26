@@ -13,26 +13,25 @@ namespace BuyersAdvisor
 {
     public partial class ShopAddForm : Form
     {
-        Shop? editedShop;
-
+        Shop editedShop;
         public ShopAddForm()
         {
             InitializeComponent();
             editButton.Visible = false;
         }
 
-        public ShopAddForm(Shop editedShop)
+        public ShopAddForm(Shop inputShop)
         {
             InitializeComponent();
+            editedShop = inputShop;
             addButton.Visible = false;
-            this.editedShop = new Shop(editedShop);
-            nameTextBox.Text = editedShop.Name;
-            addressTextBox.Text = editedShop.Address;
-            specTextBox.Text = editedShop.Specialization;
-            ownershipTextBox.Text = editedShop.Ownership;
-            hoursTextBox.Text = editedShop.WorkTime;
-            contactsBox.Lines = editedShop.Contacts.ToArray();
-            salesListBox.Items.AddRange(editedShop.Sales.Select(s => new Sale(s)).ToArray());
+            nameTextBox.Text = inputShop.Name;
+            addressTextBox.Text = inputShop.Address;
+            specTextBox.Text = inputShop.Specialization;
+            ownershipTextBox.Text = inputShop.Ownership;
+            hoursTextBox.Text = inputShop.WorkTime;
+            contactsBox.Lines = inputShop.Contacts.ToArray();
+            salesListBox.Items.AddRange(inputShop.Sales.Select(s => new Sale(s)).ToArray());
         }
 
         private void ShopAddForm_Load(object sender, EventArgs e)
@@ -42,16 +41,13 @@ namespace BuyersAdvisor
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ShopCollection.Instance.Add(new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList<string>(), salesListBox.Items.Cast<Sale>().ToList()));
+            ShopCollection.Instance.Add(new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
             Close();
         }
 
         private void addSaleButton_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(saleOldPriceTextBox.Text, out double oldPrice) && double.TryParse(saleNewPriceTextBox.Text, out double newPrice))
-            {
-                salesListBox.Items.Add(new Sale(saleNameTextBox.Text, oldPrice, newPrice));
-            }
+            salesListBox.Items.Add(new Sale("Новий товар", 0, 0));
         }
 
         private void deleteSaleButton_Click(object sender, EventArgs e)
@@ -64,6 +60,9 @@ namespace BuyersAdvisor
 
         private void salesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            saleNameTextBox.TextChanged -= parameters_TextChanged;
+            saleOldPriceTextBox.TextChanged -= parameters_TextChanged;
+            saleNewPriceTextBox.TextChanged -= parameters_TextChanged;
             if (salesListBox.SelectedItem != null)
             {
                 Sale selectedSale = (Sale)salesListBox.SelectedItem;
@@ -71,23 +70,35 @@ namespace BuyersAdvisor
                 saleOldPriceTextBox.Text = selectedSale.Price.ToString();
                 saleNewPriceTextBox.Text = selectedSale.DiscountedPrice.ToString();
             }
+            saleNameTextBox.TextChanged += parameters_TextChanged;
+            saleOldPriceTextBox.TextChanged += parameters_TextChanged;
+            saleNewPriceTextBox.TextChanged += parameters_TextChanged;
         }
 
         private void parameters_TextChanged(object sender, EventArgs e)
         {
             if (salesListBox.SelectedItem != null && double.TryParse(saleOldPriceTextBox.Text, out double oldPrice) && double.TryParse(saleNewPriceTextBox.Text, out double newPrice))
             {
+                int selectedItemIndex = salesListBox.SelectedIndex;
                 Sale sale = (Sale)salesListBox.SelectedItem;
                 sale.ProductName = saleNameTextBox.Text;
                 sale.Price = oldPrice;
                 sale.DiscountedPrice = newPrice;
-                salesListBox.Invalidate();
+                var tempArray = new List<object>();
+                foreach (var item in salesListBox.Items)
+                {
+                    tempArray.Add(item);
+                }
+                salesListBox.Items.Clear();
+                salesListBox.Items.AddRange(tempArray.ToArray());
+                salesListBox.SelectedIndex = selectedItemIndex;
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-
+            ShopCollection.Instance.Replace(editedShop, new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

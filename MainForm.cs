@@ -9,6 +9,7 @@ namespace BuyersAdvisor
         {
             InitializeComponent();
             ShopCollection.Instance.OnListChanged += updateListBoxContent;
+            ShopCollection.Instance.OnListChanged += updateInfoText;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,11 +27,7 @@ namespace BuyersAdvisor
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (checkedListBox.SelectedItem != null)
-            {
-                Shop selectedShop = (Shop)checkedListBox.SelectedItem;
-                infoText.Text = selectedShop.PrintShopInfo();
-            }
+            updateInfoText();
         }
 
         private void printInfoButton_Click(object sender, EventArgs e)
@@ -57,6 +54,18 @@ namespace BuyersAdvisor
         {
             checkedListBox.Items.Clear();
             checkedListBox.Items.AddRange(ShopCollection.Instance.SearchByTags(SearchQueryProcessor.MakeTags(searchTextBox.Text)).ToArray<Shop>());
+        }
+        private void updateInfoText()
+        {
+            if (checkedListBox.SelectedItem != null)
+            {
+                Shop selectedShop = (Shop)checkedListBox.SelectedItem;
+                infoText.Text = selectedShop.PrintShopInfo();
+            }
+            else
+            {
+                infoText.Text = "Інформація про торгівельну точку";
+            }
         }
 
         private void removeButton_Click(object sender, EventArgs e)

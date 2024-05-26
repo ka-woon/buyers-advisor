@@ -43,6 +43,14 @@ namespace BuyersAdvisor
             }
             OnListChanged?.Invoke();
         }
+        public void Replace(Shop shop, Shop newShop)
+        {
+            if (shop != null)
+            {
+                Shops[Shops.IndexOf(shop)] = newShop;
+            }
+            OnListChanged?.Invoke();
+        }
         public List<Shop> GetShopList()
         {
             return Shops;
