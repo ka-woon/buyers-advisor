@@ -206,7 +206,7 @@
             MaximumSize = new Size(815, 490);
             MinimumSize = new Size(815, 490);
             Name = "MainForm";
-            Text = " ";
+            Text = " Довідник покупця";
             FormClosed += MainForm_FormClosed;
             Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);

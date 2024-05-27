@@ -1,6 +1,6 @@
 ﻿namespace BuyersAdvisor
 {
-    partial class ShopAddForm
+    partial class ShopEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -42,10 +42,22 @@
             ownershipLabel = new Label();
             ownershipTextBox = new TextBox();
             workTimeLabel = new Label();
-            hoursTextBox = new TextBox();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            startDayPicker = new ComboBox();
+            label4 = new Label();
+            endDayPicker = new ComboBox();
+            flowLayoutPanel5 = new FlowLayoutPanel();
+            comboBox3 = new ComboBox();
+            label5 = new Label();
+            comboBox4 = new ComboBox();
+            flowLayoutPanel6 = new FlowLayoutPanel();
+            startTimePicker = new DateTimePicker();
+            label6 = new Label();
+            endTimePicker = new DateTimePicker();
             flowLayoutPanel2 = new FlowLayoutPanel();
             contactsLabel = new Label();
             contactsBox = new RichTextBox();
+            label7 = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             salesLabel = new Label();
             salesListBox = new ListBox();
@@ -62,6 +74,9 @@
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            flowLayoutPanel4.SuspendLayout();
+            flowLayoutPanel5.SuspendLayout();
+            flowLayoutPanel6.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -128,7 +143,8 @@
             flowLayoutPanel1.Controls.Add(ownershipLabel);
             flowLayoutPanel1.Controls.Add(ownershipTextBox);
             flowLayoutPanel1.Controls.Add(workTimeLabel);
-            flowLayoutPanel1.Controls.Add(hoursTextBox);
+            flowLayoutPanel1.Controls.Add(flowLayoutPanel4);
+            flowLayoutPanel1.Controls.Add(flowLayoutPanel6);
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel1.Location = new Point(3, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -218,17 +234,128 @@
             workTimeLabel.TabIndex = 8;
             workTimeLabel.Text = "Робочий час";
             // 
-            // hoursTextBox
+            // flowLayoutPanel4
             // 
-            hoursTextBox.Location = new Point(3, 244);
-            hoursTextBox.Name = "hoursTextBox";
-            hoursTextBox.Size = new Size(100, 23);
-            hoursTextBox.TabIndex = 9;
+            flowLayoutPanel4.Controls.Add(startDayPicker);
+            flowLayoutPanel4.Controls.Add(label4);
+            flowLayoutPanel4.Controls.Add(endDayPicker);
+            flowLayoutPanel4.Controls.Add(flowLayoutPanel5);
+            flowLayoutPanel4.Location = new Point(3, 244);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(172, 30);
+            flowLayoutPanel4.TabIndex = 12;
+            // 
+            // startDayPicker
+            // 
+            startDayPicker.FormattingEnabled = true;
+            startDayPicker.Items.AddRange(new object[] { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" });
+            startDayPicker.Location = new Point(3, 3);
+            startDayPicker.Name = "startDayPicker";
+            startDayPicker.Size = new Size(53, 23);
+            startDayPicker.TabIndex = 10;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label4.Location = new Point(62, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(31, 25);
+            label4.TabIndex = 12;
+            label4.Text = "—";
+            // 
+            // endDayPicker
+            // 
+            endDayPicker.FormattingEnabled = true;
+            endDayPicker.Items.AddRange(new object[] { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" });
+            endDayPicker.Location = new Point(99, 3);
+            endDayPicker.Name = "endDayPicker";
+            endDayPicker.Size = new Size(53, 23);
+            endDayPicker.TabIndex = 11;
+            // 
+            // flowLayoutPanel5
+            // 
+            flowLayoutPanel5.Controls.Add(comboBox3);
+            flowLayoutPanel5.Controls.Add(label5);
+            flowLayoutPanel5.Controls.Add(comboBox4);
+            flowLayoutPanel5.Location = new Point(3, 32);
+            flowLayoutPanel5.Name = "flowLayoutPanel5";
+            flowLayoutPanel5.Size = new Size(159, 30);
+            flowLayoutPanel5.TabIndex = 13;
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" });
+            comboBox3.Location = new Point(3, 3);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(40, 23);
+            comboBox3.TabIndex = 10;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label5.Location = new Point(49, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 25);
+            label5.TabIndex = 12;
+            label5.Text = "—";
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Нд" });
+            comboBox4.Location = new Point(86, 3);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(40, 23);
+            comboBox4.TabIndex = 11;
+            // 
+            // flowLayoutPanel6
+            // 
+            flowLayoutPanel6.Controls.Add(startTimePicker);
+            flowLayoutPanel6.Controls.Add(label6);
+            flowLayoutPanel6.Controls.Add(endTimePicker);
+            flowLayoutPanel6.Location = new Point(3, 280);
+            flowLayoutPanel6.Name = "flowLayoutPanel6";
+            flowLayoutPanel6.Size = new Size(172, 34);
+            flowLayoutPanel6.TabIndex = 14;
+            // 
+            // startTimePicker
+            // 
+            startTimePicker.CustomFormat = "HH:mm";
+            startTimePicker.Format = DateTimePickerFormat.Custom;
+            startTimePicker.Location = new Point(3, 3);
+            startTimePicker.Name = "startTimePicker";
+            startTimePicker.Size = new Size(53, 23);
+            startTimePicker.TabIndex = 16;
+            startTimePicker.Value = new DateTime(2024, 5, 27, 0, 0, 0, 0);
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label6.Location = new Point(62, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(31, 25);
+            label6.TabIndex = 12;
+            label6.Text = "—";
+            // 
+            // endTimePicker
+            // 
+            endTimePicker.CustomFormat = "HH:mm";
+            endTimePicker.Format = DateTimePickerFormat.Custom;
+            endTimePicker.Location = new Point(99, 3);
+            endTimePicker.Name = "endTimePicker";
+            endTimePicker.Size = new Size(53, 23);
+            endTimePicker.TabIndex = 15;
+            endTimePicker.Value = new DateTime(2024, 5, 27, 0, 0, 0, 0);
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(contactsLabel);
             flowLayoutPanel2.Controls.Add(contactsBox);
+            flowLayoutPanel2.Controls.Add(label7);
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
             flowLayoutPanel2.Location = new Point(184, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -242,17 +369,26 @@
             contactsLabel.Location = new Point(3, 0);
             contactsLabel.Name = "contactsLabel";
             contactsLabel.RightToLeft = RightToLeft.Yes;
-            contactsLabel.Size = new Size(239, 25);
+            contactsLabel.Size = new Size(247, 25);
             contactsLabel.TabIndex = 2;
-            contactsLabel.Text = "Контакти (один на строку)";
+            contactsLabel.Text = "Контакти* (один на строку)";
             // 
             // contactsBox
             // 
             contactsBox.Location = new Point(3, 28);
             contactsBox.Name = "contactsBox";
-            contactsBox.Size = new Size(253, 348);
+            contactsBox.Size = new Size(253, 337);
             contactsBox.TabIndex = 3;
             contactsBox.Text = "";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 368);
+            label7.Name = "label7";
+            label7.Size = new Size(164, 15);
+            label7.TabIndex = 4;
+            label7.Text = "*номер телефону або e-mail";
             // 
             // flowLayoutPanel3
             // 
@@ -366,7 +502,7 @@
             addSaleButton.Name = "addSaleButton";
             addSaleButton.Size = new Size(112, 23);
             addSaleButton.TabIndex = 12;
-            addSaleButton.Text = "Додати товар";
+            addSaleButton.Text = "Новий товар";
             addSaleButton.UseVisualStyleBackColor = true;
             addSaleButton.Click += addSaleButton_Click;
             // 
@@ -385,23 +521,29 @@
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.TabIndex = 13;
-            cancelButton.Text = "Відміна";
+            cancelButton.Text = "Скасувати";
             cancelButton.UseVisualStyleBackColor = true;
             cancelButton.Click += cancelButton_Click;
             // 
-            // ShopAddForm
+            // ShopEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tableLayoutPanel1);
-            Name = "ShopAddForm";
-            Text = "ShopAddForm";
+            Name = "ShopEditor";
+            Text = "Редактор магазину";
             Load += ShopAddForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            flowLayoutPanel4.ResumeLayout(false);
+            flowLayoutPanel4.PerformLayout();
+            flowLayoutPanel5.ResumeLayout(false);
+            flowLayoutPanel5.PerformLayout();
+            flowLayoutPanel6.ResumeLayout(false);
+            flowLayoutPanel6.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
@@ -423,7 +565,6 @@
         private Label ownershipLabel;
         private TextBox ownershipTextBox;
         private Label workTimeLabel;
-        private TextBox hoursTextBox;
         private FlowLayoutPanel flowLayoutPanel2;
         private Label contactsLabel;
         private RichTextBox contactsBox;
@@ -443,5 +584,18 @@
         private Panel panel1;
         private Button editButton;
         private Panel panel2;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private ComboBox startDayPicker;
+        private Label label4;
+        private ComboBox endDayPicker;
+        private FlowLayoutPanel flowLayoutPanel5;
+        private ComboBox comboBox3;
+        private Label label5;
+        private ComboBox comboBox4;
+        private FlowLayoutPanel flowLayoutPanel6;
+        private Label label6;
+        private DateTimePicker endTimePicker;
+        private DateTimePicker startTimePicker;
+        private Label label7;
     }
 }

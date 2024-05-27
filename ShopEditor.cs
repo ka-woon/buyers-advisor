@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace BuyersAdvisor
 {
-    public partial class ShopAddForm : Form
+    public partial class ShopEditor : Form
     {
         Shop editedShop;
-        public ShopAddForm()
+        public ShopEditor()
         {
             InitializeComponent();
             editButton.Visible = false;
         }
 
-        public ShopAddForm(Shop inputShop)
+        public ShopEditor(Shop inputShop)
         {
             InitializeComponent();
             editedShop = inputShop;
@@ -29,20 +29,44 @@ namespace BuyersAdvisor
             addressTextBox.Text = inputShop.Address;
             specTextBox.Text = inputShop.Specialization;
             ownershipTextBox.Text = inputShop.Ownership;
-            hoursTextBox.Text = inputShop.WorkTime;
+            startDayPicker.Text = inputShop.ShopWorkTime.StartDay;
+            endDayPicker.Text = inputShop.ShopWorkTime.EndDay;
+            startTimePicker.Text = inputShop.ShopWorkTime.StartTime;
+            endTimePicker.Text = inputShop.ShopWorkTime.EndTime;
             contactsBox.Lines = inputShop.Contacts.ToArray();
             salesListBox.Items.AddRange(inputShop.Sales.Select(s => new Sale(s)).ToArray());
         }
 
         private void ShopAddForm_Load(object sender, EventArgs e)
         {
-
+            startTimePicker.ShowUpDown = true;
+            endTimePicker.ShowUpDown = true;
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            ShopCollection.Instance.Add(new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
-            Close();
+            if (Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact))
+            {
+                ShopCollection.Instance.Add(new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, new WorkTime(startDayPicker.Text, endDayPicker.Text, startTimePicker.Text, endTimePicker.Text), contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
+                Close();
+            }
+            else
+            {
+                MessageBox.Show($"Некоректно введено контакт: {incorrectContact}.", "Помилка");
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if(Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact))
+            {
+                ShopCollection.Instance.Replace(editedShop, new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, new WorkTime(startDayPicker.Text, endDayPicker.Text, startTimePicker.Text, endTimePicker.Text), contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
+                Close();
+            }
+            else
+            {
+                MessageBox.Show($"Некоректно введено контакт: {incorrectContact}.", "Помилка");
+            }
         }
 
         private void addSaleButton_Click(object sender, EventArgs e)
@@ -93,12 +117,10 @@ namespace BuyersAdvisor
                 salesListBox.Items.AddRange(tempArray.ToArray());
                 salesListBox.SelectedIndex = selectedItemIndex;
             }
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            ShopCollection.Instance.Replace(editedShop, new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, hoursTextBox.Text, contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
-            Close();
+            else if(salesListBox.SelectedItem != null)
+            {
+                MessageBox.Show("Введіть коректну ціну.", "Помилка");
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -14,4 +14,4 @@ C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.genruntimeconfig.cache
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\ref\BuyersAdvisor.dll
 C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.MainForm.resources
-C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.ShopAddForm.resources
+C:\Users\mrros\source\repos\BuyersAdvisor\BuyersAdvisor\obj\Debug\net8.0-windows\BuyersAdvisor.ShopEditor.resources

@@ -32,8 +32,15 @@ namespace BuyersAdvisor
 
         private void printInfoButton_Click(object sender, EventArgs e)
         {
-            ShopCollection checkedShops = new ShopCollection(checkedListBox.CheckedItems.Cast<Shop>().ToList());
-            File.WriteAllText("shopsInfo.txt", checkedShops.ToString());
+            if (checkedListBox.CheckedItems.Count > 0)
+            {
+                ShopCollection checkedShops = new ShopCollection(checkedListBox.CheckedItems.Cast<Shop>().ToList());
+                File.WriteAllText("shopsInfo.txt", checkedShops.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Жодну торгівельну точку не обрано.", "Помилка");
+            }
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -42,8 +49,8 @@ namespace BuyersAdvisor
 
         private void addShopButton_Click(object sender, EventArgs e)
         {
-            ShopAddForm shopAddForm = new ShopAddForm();
-            shopAddForm.ShowDialog();
+            ShopEditor shopEditor = new ShopEditor();
+            shopEditor.ShowDialog();
         }
         private void updateListBoxContent()
         {
@@ -68,12 +75,29 @@ namespace BuyersAdvisor
             }
         }
 
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if (checkedListBox.SelectedItem != null)
+            {
+                ShopEditor shopEditor = new ShopEditor((Shop)checkedListBox.SelectedItem);
+                shopEditor.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Торгівельну точку не обрано.", "Помилка");
+            }
+        }
+
         private void removeButton_Click(object sender, EventArgs e)
         {
             if (checkedListBox.SelectedItem != null)
             {
                 Shop selectedShop = (Shop)checkedListBox.SelectedItem;
                 ShopCollection.Instance.Remove(selectedShop);
+            }
+            else
+            {
+                MessageBox.Show("Торгівельну точку не обрано.", "Помилка");
             }
         }
 
@@ -86,15 +110,6 @@ namespace BuyersAdvisor
             else
             {
                 updateListBoxSearhedContent();
-            }
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            if(checkedListBox.SelectedItem != null)
-            {
-                ShopAddForm shopAddForm = new ShopAddForm((Shop)checkedListBox.SelectedItem);
-                shopAddForm.ShowDialog();
             }
         }
     }
