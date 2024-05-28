@@ -14,13 +14,13 @@ namespace BuyersAdvisor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (File.Exists("shops.txt"))
+            if (File.Exists("shops.json"))
             {
-                ShopCollection.Instance.Shops = JsonSerializer.Deserialize<List<Shop>>(File.ReadAllText("shops.txt"));
+                ShopCollection.Instance.Shops = JsonSerializer.Deserialize<List<Shop>>(File.ReadAllText("shops.json"));
             }
             else
             {
-                File.WriteAllText("shops.txt", JsonSerializer.Serialize(ShopCollection.Instance));
+                File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance));
             }
             checkedListBox.Items.AddRange(ShopCollection.Instance.GetShopList().ToArray<Shop>());
         }
@@ -44,7 +44,7 @@ namespace BuyersAdvisor
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            File.WriteAllText("shops.txt", JsonSerializer.Serialize(ShopCollection.Instance.Shops));
+            File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance.Shops));
         }
 
         private void addShopButton_Click(object sender, EventArgs e)
