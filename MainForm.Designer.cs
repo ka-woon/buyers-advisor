@@ -105,7 +105,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 31F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tableLayoutPanel1.Size = new Size(776, 426);
-            tableLayoutPanel1.TabIndex = 5;
+            tableLayoutPanel1.TabIndex = 101;
             // 
             // flowLayoutPanel2
             // 
@@ -114,14 +114,14 @@
             flowLayoutPanel2.Location = new Point(3, 397);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(382, 26);
-            flowLayoutPanel2.TabIndex = 10;
+            flowLayoutPanel2.TabIndex = 103;
             // 
             // printInfoButton
             // 
             printInfoButton.Location = new Point(3, 3);
             printInfoButton.Name = "printInfoButton";
             printInfoButton.Size = new Size(129, 22);
-            printInfoButton.TabIndex = 7;
+            printInfoButton.TabIndex = 3;
             printInfoButton.Text = "Роздрукувати обрані";
             printInfoButton.UseVisualStyleBackColor = true;
             printInfoButton.Click += printInfoButton_Click;
@@ -131,7 +131,7 @@
             addShopButton.Location = new Point(138, 3);
             addShopButton.Name = "addShopButton";
             addShopButton.Size = new Size(162, 22);
-            addShopButton.TabIndex = 6;
+            addShopButton.TabIndex = 4;
             addShopButton.Text = "Дотати торгівельну точку";
             addShopButton.UseVisualStyleBackColor = true;
             addShopButton.Click += addShopButton_Click;
@@ -144,7 +144,7 @@
             flowLayoutPanel1.Location = new Point(391, 397);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(382, 26);
-            flowLayoutPanel1.TabIndex = 9;
+            flowLayoutPanel1.TabIndex = 104;
             // 
             // removeButton
             // 
@@ -152,7 +152,7 @@
             removeButton.Location = new Point(291, 3);
             removeButton.Name = "removeButton";
             removeButton.Size = new Size(88, 22);
-            removeButton.TabIndex = 9;
+            removeButton.TabIndex = 6;
             removeButton.Text = "Видалити";
             removeButton.UseVisualStyleBackColor = true;
             removeButton.Click += removeButton_Click;
@@ -163,7 +163,7 @@
             editButton.Location = new Point(197, 3);
             editButton.Name = "editButton";
             editButton.Size = new Size(88, 22);
-            editButton.TabIndex = 10;
+            editButton.TabIndex = 5;
             editButton.Text = "Редагувати";
             editButton.UseVisualStyleBackColor = true;
             editButton.Click += editButton_Click;
@@ -177,7 +177,7 @@
             flowLayoutPanel3.Location = new Point(3, 35);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(382, 356);
-            flowLayoutPanel3.TabIndex = 11;
+            flowLayoutPanel3.TabIndex = 102;
             // 
             // searchLabel
             // 
@@ -193,7 +193,7 @@
             searchTextBox.Location = new Point(3, 316);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.Size = new Size(379, 23);
-            searchTextBox.TabIndex = 12;
+            searchTextBox.TabIndex = 2;
             searchTextBox.TextChanged += searchTextBox_TextChanged;
             // 
             // MainForm

@@ -129,6 +129,10 @@ namespace BuyersAdvisor
             {
                 MessageBox.Show("Введіть коректну ціну.", "Помилка");
             }
+            else
+            {
+                MessageBox.Show("Спочатку оберіть това.", "Помилка");
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

@@ -22,11 +22,11 @@ namespace BuyersAdvisor
 
         public override string ToString()
         {
-            return $"Назва товару: {ProductName}. Стара ціна: {Price}. Нова ціна: {DiscountedPrice}";
+            return $"Назва товару: {ProductName}. Стара ціна: {Price} грн. Нова ціна: {DiscountedPrice} грн.";
         }
         public string PrintRawInfo()
         {
-            return $"{ProductName} {Price} {DiscountedPrice}";
+            return $"{ProductName} стара ціна: {Price} нова ціна: {DiscountedPrice}";
         }
     }
 }
