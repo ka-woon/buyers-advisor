@@ -9,11 +9,11 @@ namespace BuyersAdvisor
 {
     public class Shop
     {
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Specialization { get; set; }
-        public string Ownership { get; set; }
-        public WorkTime ShopWorkTime { get; set; }
+        public string Name { get; set; } = "";
+        public string Address { get; set; } = "";
+        public string Specialization { get; set; } = "";
+        public string Ownership { get; set; } = "";
+        public WorkTime ShopWorkTime { get; set; } = new WorkTime();
         public List<string> Contacts { get; set; } = new List<string>();
         public List<Sale> Sales { get; set; } = new List<Sale>();
         public Shop() { }

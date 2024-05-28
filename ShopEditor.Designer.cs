@@ -253,6 +253,7 @@
             startDayPicker.Name = "startDayPicker";
             startDayPicker.Size = new Size(53, 23);
             startDayPicker.TabIndex = 10;
+            startDayPicker.Text = "Пн";
             // 
             // label4
             // 
@@ -272,6 +273,7 @@
             endDayPicker.Name = "endDayPicker";
             endDayPicker.Size = new Size(53, 23);
             endDayPicker.TabIndex = 11;
+            endDayPicker.Text = "Пт";
             // 
             // flowLayoutPanel5
             // 
@@ -349,7 +351,7 @@
             endTimePicker.Name = "endTimePicker";
             endTimePicker.Size = new Size(53, 23);
             endTimePicker.TabIndex = 15;
-            endTimePicker.Value = new DateTime(2024, 5, 27, 0, 0, 0, 0);
+            endTimePicker.Value = new DateTime(2024, 5, 27, 20, 0, 0, 0);
             // 
             // flowLayoutPanel2
             // 

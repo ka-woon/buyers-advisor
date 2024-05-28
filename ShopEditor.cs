@@ -45,27 +45,35 @@ namespace BuyersAdvisor
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if (Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact))
+            if (Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact) && nameTextBox.Text != "" && addressTextBox.Text != "" && addressTextBox.Text != "" && ownershipTextBox.Text != "" && startDayPicker.Text != "" && endDayPicker.Text != "")
             {
                 ShopCollection.Instance.Add(new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, new WorkTime(startDayPicker.Text, endDayPicker.Text, startTimePicker.Text, endTimePicker.Text), contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
                 Close();
             }
-            else
+            else if(incorrectContact != "")
             {
                 MessageBox.Show($"Некоректно введено контакт: {incorrectContact}.", "Помилка");
+            }
+            else
+            {
+                MessageBox.Show($"Одне з полів не заповнено.", "Помилка");
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if(Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact))
+            if(Shop.CheckContactsCorrectivity(contactsBox.Lines.ToList(), out string incorrectContact) && nameTextBox.Text != "" && addressTextBox.Text != "" && specTextBox.Text != "" && ownershipTextBox.Text != "" && startDayPicker.Text != "" && endDayPicker.Text != "")
             {
                 ShopCollection.Instance.Replace(editedShop, new Shop(nameTextBox.Text, addressTextBox.Text, specTextBox.Text, ownershipTextBox.Text, new WorkTime(startDayPicker.Text, endDayPicker.Text, startTimePicker.Text, endTimePicker.Text), contactsBox.Lines.ToList(), salesListBox.Items.Cast<Sale>().ToList()));
                 Close();
             }
-            else
+            else if(incorrectContact != "")
             {
                 MessageBox.Show($"Некоректно введено контакт: {incorrectContact}.", "Помилка");
+            }
+            else
+            {
+                MessageBox.Show($"Одне з полів не заповнено.", "Помилка");
             }
         }
 
