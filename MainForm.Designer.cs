@@ -63,9 +63,9 @@
             listLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             listLabel.Location = new Point(3, 0);
             listLabel.Name = "listLabel";
-            listLabel.Size = new Size(167, 25);
+            listLabel.Size = new Size(173, 25);
             listLabel.TabIndex = 2;
-            listLabel.Text = "Торгівельні точки";
+            listLabel.Text = "Торговельні точки";
             // 
             // infoLabel
             // 
@@ -82,9 +82,9 @@
             infoText.AutoSize = true;
             infoText.Location = new Point(391, 32);
             infoText.Name = "infoText";
-            infoText.Size = new Size(197, 15);
+            infoText.Size = new Size(156, 15);
             infoText.TabIndex = 4;
-            infoText.Text = "Інформація про торгівельну точку";
+            infoText.Text = "Оберіть торговельну точку";
             // 
             // tableLayoutPanel1
             // 
@@ -132,7 +132,7 @@
             addShopButton.Name = "addShopButton";
             addShopButton.Size = new Size(162, 22);
             addShopButton.TabIndex = 4;
-            addShopButton.Text = "Дотати торгівельну точку";
+            addShopButton.Text = "Дотати торговельну точку";
             addShopButton.UseVisualStyleBackColor = true;
             addShopButton.Click += addShopButton_Click;
             // 
@@ -184,9 +184,9 @@
             searchLabel.AutoSize = true;
             searchLabel.Location = new Point(3, 298);
             searchLabel.Name = "searchLabel";
-            searchLabel.Size = new Size(180, 15);
+            searchLabel.Size = new Size(268, 15);
             searchLabel.TabIndex = 11;
-            searchLabel.Text = "Пошук за ключовими словами";
+            searchLabel.Text = "Пошук за критеріями (розділити символом \";\")";
             // 
             // searchTextBox
             // 

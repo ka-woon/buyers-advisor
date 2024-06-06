@@ -11,8 +11,7 @@ namespace BuyersAdvisor
         public static List<string> MakeTags(string searchQuery)
         {
             List<string> tags;
-            searchQuery = searchQuery.Replace(",", " ");
-            tags = searchQuery.ToLower().Split(' ').ToList();
+            tags = searchQuery.ToLower().Split(';').ToList();
             foreach (string tag in tags)
             {
                 tag.Trim();

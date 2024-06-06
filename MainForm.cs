@@ -14,15 +14,13 @@ namespace BuyersAdvisor
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (File.Exists("shops.json"))
-            {
-                ShopCollection.Instance.Shops = JsonSerializer.Deserialize<List<Shop>>(File.ReadAllText("shops.json"));
-            }
-            else
-            {
-                File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance));
-            }
+            ShopCollection.Load();
             checkedListBox.Items.AddRange(ShopCollection.Instance.GetShopList().ToArray<Shop>());
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ShopCollection.Save();
         }
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,12 +37,8 @@ namespace BuyersAdvisor
             }
             else
             {
-                MessageBox.Show("Жодну торгівельну точку не обрано.", "Помилка");
+                MessageBox.Show("Жодну торговельну точку не обрано.", "Помилка");
             }
-        }
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance.Shops));
         }
 
         private void addShopButton_Click(object sender, EventArgs e)
@@ -71,7 +65,7 @@ namespace BuyersAdvisor
             }
             else
             {
-                infoText.Text = "Інформація про торгівельну точку";
+                infoText.Text = "Інформація про торговельну точку";
             }
         }
 
@@ -84,7 +78,7 @@ namespace BuyersAdvisor
             }
             else
             {
-                MessageBox.Show("Торгівельну точку не обрано.", "Помилка");
+                MessageBox.Show("Торговельну точку не обрано.", "Помилка");
             }
         }
 
@@ -97,7 +91,7 @@ namespace BuyersAdvisor
             }
             else
             {
-                MessageBox.Show("Торгівельну точку не обрано.", "Помилка");
+                MessageBox.Show("Торговельну точку не обрано.", "Помилка");
             }
         }
 

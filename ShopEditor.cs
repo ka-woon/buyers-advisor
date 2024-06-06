@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BuyersAdvisor
 {
@@ -39,6 +40,8 @@ namespace BuyersAdvisor
 
         private void ShopAddForm_Load(object sender, EventArgs e)
         {
+            startDayPicker.DropDownStyle = ComboBoxStyle.DropDownList;
+            endDayPicker.DropDownStyle = ComboBoxStyle.DropDownList;
             startTimePicker.ShowUpDown = true;
             endTimePicker.ShowUpDown = true;
         }
@@ -131,7 +134,7 @@ namespace BuyersAdvisor
             }
             else
             {
-                MessageBox.Show("Спочатку оберіть това.", "Помилка");
+                MessageBox.Show("Спочатку оберіть товар.", "Помилка");
             }
         }
 

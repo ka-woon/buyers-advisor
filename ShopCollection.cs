@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -71,6 +72,23 @@ namespace BuyersAdvisor
                 }
             }
             return result;
+        }
+
+        public static void Load()
+        {
+            if (File.Exists("shops.json"))
+            {
+                ShopCollection.Instance.Shops = JsonSerializer.Deserialize<List<Shop>>(File.ReadAllText("shops.json"));
+            }
+            else
+            {
+                File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance));
+            }
+        }
+
+        public static void Save()
+        {
+            File.WriteAllText("shops.json", JsonSerializer.Serialize(ShopCollection.Instance.Shops));
         }
     }
 }
